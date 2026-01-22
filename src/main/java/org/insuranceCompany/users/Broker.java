@@ -1,16 +1,25 @@
 package org.insuranceCompany.users;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.insuranceCompany.insurance.Building;
 
 import java.util.ArrayList;
 import java.util.List;
+@Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Broker {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private  String name;
     private  String email;

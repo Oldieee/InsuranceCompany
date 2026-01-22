@@ -1,15 +1,24 @@
 package org.insuranceCompany.insurance;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.insuranceCompany.geography.City;
 import org.insuranceCompany.users.Client;
 
 import java.math.BigDecimal;
+@Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Building {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Client owner;
     private City city;
@@ -21,11 +30,5 @@ public class Building {
     private BigDecimal price;
 
 
-    public Building(Long id, Client owner, City city, String address, BuildingType type) {
-        this.id = id;
-        this.owner = owner;
-        this.city = city;
-        this.address = address;
-        this.type = type;
-    }
+
 }
