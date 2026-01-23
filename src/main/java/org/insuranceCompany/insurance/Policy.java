@@ -1,9 +1,6 @@
 package org.insuranceCompany.insurance;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +18,14 @@ public class Policy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn
     private Broker broker;
+    @ManyToOne
+    @JoinColumn
     private Client client;
+    @ManyToOne
+    @JoinColumn
     private Building building;
     private  String policyNumber;
     private LocalDate startDate,endDate;
