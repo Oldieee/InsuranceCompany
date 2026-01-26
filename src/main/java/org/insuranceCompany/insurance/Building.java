@@ -1,5 +1,6 @@
 package org.insuranceCompany.insurance;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Building {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 @ManyToOne
+@JsonIgnore
     private Client owner;
 @OneToMany(mappedBy = "building")
     private List<Policy> policy=new ArrayList<>();
